@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="icon shortcut" href="./favicon.png" type="image/png">
+  <style type="text/css" media="all">
+  body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #212121;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+    .loginContainer{
+      width: 310px;
+      margin-left: 35px;
+      background-color: #/*42445A*/ 303030;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      /*box-shadow: black 0px 2px 10px;*/
+      margin-top: 140px;
+      height: 430px;
+      position: fixed;
+    }
+    .loginName{
+      margin-top: -40px;
+    }
+    .loginEmail{
+    }
+    .loginPassword{
+    }
+    .loginName input{
+      width: 260px;
+      height: 35px;
+      outline: none;
+      margin: 8px;
+      border: none;
+      border-radius: 3px;
+      margin-top: -10px;
+    }
+    .loginName p{
+      font-size: 12px;
+      margin: 20px;
+    }
+    .loginEmail input{
+      width: 260px;
+      height: 35px;
+      outline: none;
+      margin: 8px;
+      border: none;
+      border-radius: 3px;
+      margin-top: -10px;
+    }
+    .loginEmail p{
+      font-size: 12px;
+      margin: 20px;
+    }
+    .loginPassword p{
+      font-size: 12px;
+      margin: 20px;
+    }
+    .loginPassword input{
+      width: 260px;
+      height: 35px;
+      outline: none;
+      margin: 8px;
+      border: none;
+      border-radius: 3px;
+      margin-top: -10px;
+    }
+    #SignUpButton{
+      width: 130px;
+      height: 40px;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      background-color: #FF6000;
+      font-weight: 800;
+      margin-top: 20px;
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    #SignUpButton:hover{
+      background-color: white;
+      color: #FF6000;
+    }
+    .signUpText{
+      font-size: 40px;
+      font-weight: 800;
+      margin: 70px;
+      margin-top: 20px;
+    }
+    .obj{
+      color: #FF6000;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if(localStorage.getItem("Token")){
+    location.replace("./home.html")
+  }
+  </script>
+  <!--Login section-->
+  <div class="loginContainer">
+    <center>
+    <p class="signUpText">LOGIN</p>
+    </center>
+    <div class="loginName">
+      <p>Type your <span class="obj">name :</span></p>
+      <center>
+      <input type="text" name="UserName" id="UserName">
+      </center>
+    </div>
+    <div class="loginEmail">
+      <p>Type your <span class="obj">email :</span></p>
+      <center>
+      <input type="email" name="UserEmail" id="UserEmail">
+      </center>
+    </div>
+    <div class="loginPassword">
+      <p>Type your <span class="obj">password :</span></p>
+      <center>
+      <input type="password" name="UserPassword" id="UserPassword" />
+      </center>
+    </div>
+    <div class="submitButton">
+      <center>
+      <button onclick="signUp()" name="SignUpButton" id="SignUpButton" type="submit">SIGN UP</button>
+      </center>
+    </div>
+  </div>
+<script>
+  const userName = document.querySelector("#UserName");
+  const userEmail = document.querySelector("#UserEmail");
+  const userPassword = document.querySelector("#UserPassword");
+  function signUp(){
+    if(userName.value && userEmail.value && userPassword.value){
+      localStorage.setItem("Name",userName.value);
+      localStorage.setItem("Email",userEmail.value);
+      localStorage.setItem("Password",userPassword.value);
+      localStorage.setItem("Token",userName.value + "@twin");
+      alert(`${userName.value} was successfully logged`)
+      location.replace("./home.html");
+    }else{
+      alert("Please enter a valid details before login!");
+    }
+  }
+</script>
+</body>
+</html>

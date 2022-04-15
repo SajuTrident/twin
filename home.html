@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home</title>
+  <link rel="icon shortcut" href="./favicon.png" type="image/png">
+  <style type="text/css" media="all">
+    body{
+      margin: 0px;
+      padding: 0px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    a{
+      text-decoration: none;
+      color: orangered;
+    }
+    .header{
+      width: 384px;
+      height: 50px;
+      display: flex;
+      background-color: #FFFF;
+      color: #000;
+      font-size: 30px;
+      /*border-bottom: 1px solid #000;*/
+      box-shadow: 0px 0px 1px;
+      position: fixed;
+      top: 0px;
+    }
+    .header img{
+      height: 50px;
+    }
+    .sp-h{
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .command-c{
+      width: 300px;
+      height: 100%;
+      margin-top: 100px;
+    }
+    .command-c span{
+      font-size: 13px;
+    }
+    .sp1{
+      color: green;
+    }
+    .invite-c{
+      width: 300px;
+      height: 330px;
+      margin-top: 40px;
+      padding: 5px;
+      box-shadow: 0px 0px 1px;
+      border-radius: 10px;
+    }
+    .invite-c img{
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 30px;
+    }
+    .invite-c span{
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .sp2{
+      color: #525253;
+    }
+    .invite-c button{
+      width: 250px;
+      height: 40px;
+      margin-top: 30px;
+      border-radius: 3px;
+      border: none;
+      color: #FFFF;
+      font-weight: 800;
+      background-color: green;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if(localStorage.getItem("Token")){
+    console.log("Home page!")
+  }else{
+    location.replace("./login.html")
+  }
+  </script>
+  <!--Header-->
+  <div class="header">
+    <img src="./headicon.png" alt="Twin" />
+    <span class="sp-h">TWIN</span>
+  </div>
+  <!--Command-->
+  <center>
+  <div class="command-c">
+    <h3>Command's</h3>
+    <span class="span"><span class="sp1">:help</span> See all commands.</span>
+    <span><span class="sp1">:admin</span> See all admins (feature pending..).</span>
+    <span><span class="sp1">:dev</span> See Twin developers.</span><br>
+    <span><span class="sp1"> :(Type something)</span> Assist you.</span>
+    <span>More <span class="sp1">commands</span> coming soon. feedback at use <span class="sp1"><a href="./feedback.html">this</a></span>.</span>
+  </div>
+  <!--Invite-->
+  <div class="invite-c">
+    <img src="./headicon.png" alt="Twin">
+    <span>Twin <span class="sp2">#1222</span>✅</span>
+    <h4>Permission</h4>
+    <span class="sp1">Administrator</span>
+    <button onclick="invite()" type="submit">ACCEPT</button>
+  </div>
+  </center>
+  <script>
+    function invite(){
+      location.replace("https://discord.com/oauth2/authorize?client_id=962034912549015632&permissions=8&scope=bot");
+    }
+  </script>
+</body>
+</html>
